@@ -1,13 +1,42 @@
 <!DOCTYPE html>
 <html <?php language_attributes(); ?>>
-  <head>
-    <meta charset="<?php bloginfo('charset'); ?>">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <?php wp_head(); ?>
-  </head>
-  <body <?php body_class(); ?>>
-    <div class="bg-gray-300">
-      <div class="max-w-4xl mx-auto mb-5 px-4">
-        <h1 class="text-3xl py-10"><a href="<?php echo get_home_url(); ?>" class="hover:text-blue-500">Welcome To Our Header!</a></h1>
-      </div>
-    </div>
+<head>
+  <meta charset="<?php bloginfo('charset'); ?>">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <?php wp_head(); ?>
+</head>
+<body <?php body_class('bg-white text-gray-900'); ?>>
+
+<header class="bg-gray-800 text-white">
+  <div class="container mx-auto flex items-center justify-between p-4">
+    <a href="<?php echo esc_url(home_url('/')); ?>" class="text-2xl font-bold">
+      <?php 
+      if (has_custom_logo()) {
+        the_custom_logo();
+      } else {
+        bloginfo('name');
+      }
+      ?>
+    </a>
+
+    <nav>
+      <?php
+      wp_nav_menu([
+        'theme_location' => 'primary',
+        'menu_class' => 'flex space-x-6',
+        'container' => false,
+        'fallback_cb' => false,
+        'depth' => 1,
+        'walker' => new class extends Walker_Nav_Menu {
+          function start_el(&$output, $item, $depth = 0, $args = null, $id = 0) {
+            $output .= '<li><a href="' . esc_url($item->url) . '" class="hover:text-yellow-400">' . esc_html($item->title) . '</a></li>';
+          }
+          function end_el(&$output, $item, $depth = 0, $args = null) {
+            $output .= '</li>';
+          }
+        }
+      ]);
+      ?>
+    </nav>
+  </div>
+</header>

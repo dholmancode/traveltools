@@ -1,0 +1,13 @@
+{
+  "name": "traveltools",
+  "version": "1.0.0",
+  "devDependencies": {
+    "tailwindcss": "^3.3.3",
+    "postcss": "^8.5.4",
+    "autoprefixer": "^10.4.21"
+  },
+  "scripts": {
+    "build": "tailwindcss -i ./wp-content/themes/traveltools/assets/css/tailwind.css -o ./wp-content/themes/traveltools/dist/style.css --minify",
+    "watch": "tailwindcss -i ./wp-content/themes/traveltools/assets/css/tailwind.css -o ./wp-content/themes/traveltools/dist/style.css --watch"
+  }
+}

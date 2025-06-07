@@ -11,6 +11,7 @@ services:
       MYSQL_PASSWORD: userpassword
     volumes:
       - db_data:/var/lib/mysql
+      - ./php.ini:/usr/local/etc/php/uploads.ini
     ports:
       - "3306:3306"
 
