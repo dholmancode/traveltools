@@ -1,3 +1,111 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  h1, h2, h3, h4, h5 {
+    @apply font-heading;
+  }
+
+  p, a, ul, ol {
+    @apply font-body;
+  }
+
+  h1 {
+    @apply text-4xl font-extrabold;
+  }
+
+  h2 {
+    @apply text-3xl font-bold;
+  }
+
+  h3 {
+    @apply text-2xl font-semibold;
+  }
+
+  h4 {
+    @apply text-xl font-medium;
+  }
+
+  h5 {
+    @apply text-lg font-medium;
+  }
+
+  p {
+    @apply text-base font-normal;
+  }
+
+  a {
+    @apply text-base font-medium underline;
+  }
+
+  /* Don't underline links with 'btn' class */
+  a.btn,
+  a[class*="btn"],
+  a[class*="button"] {
+    @apply no-underline;
+  }
+
+  ul {
+    @apply list-disc list-inside;
+  }
+
+  ol {
+    @apply list-decimal list-inside;
+  }
+
+  li {
+    @apply mb-1;
+  }
+}
+
+.main-nav {
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 50px;
+  padding: 20px 3vw 15px 3vw;
+}
+
+/* Use Montserrat for nav links */
+.main-nav a,
+nav a {
+  font-family: 'Montserrat', sans-serif;
+  position: relative;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 1rem;
+  color: #E59C59;
+  transition: color 0.7s ease;
+}
+
+/* Center-out underline effect */
+.main-nav a::after,
+nav a::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 50%;
+  transform: translateX(-50%) scaleX(0);
+  transform-origin: center;
+  border-radius: 50px;
+  width: 100%;
+  height: 3px;
+  border-radius: 9999px; /* fully rounded underline */
+  background-color: #0F9997;
+  transition: transform 0.3s ease;
+}
+
+/* Animate underline on hover */
+.main-nav a:hover::after,
+nav a:hover::after {
+  transform: translateX(-50%) scaleX(1);
+}
+
+#bar1, #bar2, #bar3 {
+  background-color: white;
+  border-radius: 50px;
+}
+
+
+.dgh-hero-cta a{
+  text-decoration: none;
+}
