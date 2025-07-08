@@ -5,9 +5,35 @@ function mytheme_enqueue_scripts() {
   wp_enqueue_script(
       'mytheme-theme-js',
       get_template_directory_uri() . '/assets/js/theme.js',
-      array(), // Add dependencies here if needed
-      filemtime(get_template_directory() . '/assets/js/theme.js'), // Cache busting
-      true // Load in footer
+      array(),
+      filemtime(get_template_directory() . '/assets/js/theme.js'),
+      true
+  );
+
+    // Enqueue main theme JavaScript
+    wp_enqueue_script(
+      'mytheme-portfolio-js',
+      get_template_directory_uri() . '/assets/js/portfolio.js',
+      array(),
+      filemtime(get_template_directory() . '/assets/js/portfolio.js'),
+      true
+  );
+
+  // Enqueue photo.js
+  wp_enqueue_script(
+      'mytheme-photo-js',
+      get_template_directory_uri() . '/assets/js/photo.js',
+      array(),
+      filemtime(get_template_directory() . '/assets/js/photo.js'),
+      true
+  );
+
+  // Enqueue photo.css
+  wp_enqueue_style(
+      'mytheme-photo-css',
+      get_template_directory_uri() . '/assets/css/photo.css',
+      array(),
+      filemtime(get_template_directory() . '/assets/css/photo.css')
   );
 }
 add_action('wp_enqueue_scripts', 'mytheme_enqueue_scripts');

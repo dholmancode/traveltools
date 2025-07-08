@@ -21,13 +21,13 @@ $text_order_class  = $image_on_right ? 'md:order-1' : 'md:order-2';
 
   <div class="md:w-1/2 <?php echo esc_attr($text_order_class); ?>">
     <?php if ($title): ?>
-      <h2 class="text-3xl font-semibold mb-4">
+      <h2 class="text-3xl font-semibold text-white mb-4">
         <?php echo esc_html($title); ?>
       </h2>
     <?php endif; ?>
 
     <?php if ($content): ?>
-      <div class="prose max-w-none text-gray-700">
+      <div class="prose max-w-none text-white">
         <?php echo wp_kses_post($content); ?>
       </div>
     <?php endif; ?>

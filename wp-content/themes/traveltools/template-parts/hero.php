@@ -40,7 +40,7 @@ if ($hero_type === 'cta') {
 }
 ?>
 
-<section class="relative bg-cover bg-center py-20" style="background-image: url('<?php echo esc_url($background_url); ?>');">
+<section class="relative bg-cover bg-center min-h-[700px] py-32 md:py-40 flex items-center" style="background-image: url('<?php echo esc_url($background_url); ?>');">
   <?php if ($overlay_color): ?>
     <div class="absolute inset-0" style="background-color: <?php echo esc_attr($overlay_color); ?>; opacity: 0.5; pointer-events: none;"></div>
   <?php endif; ?>
@@ -49,13 +49,13 @@ if ($hero_type === 'cta') {
     <?php if ($hero_type === 'basic'): ?>
       <div class="text-center">
         <?php if (!empty($title)): ?>
-          <h1 class="font-extrabold mb-4" style="color: <?php echo esc_attr($h1_color); ?>;">
+          <h1 class="font-extrabold mb-4 text-4xl md:text-5xl lg:text-6xl" style="color: <?php echo esc_attr($h1_color); ?>;">
             <?php echo esc_html($title); ?>
           </h1>
         <?php endif; ?>
 
         <?php if (!empty($subtitle)): ?>
-          <p class="text-lg mb-6" style="color: <?php echo esc_attr($subtitle_color); ?>;">
+          <p class="text-lg md:text-xl mb-6" style="color: <?php echo esc_attr($subtitle_color); ?>;">
             <?php echo esc_html($subtitle); ?>
           </p>
         <?php endif; ?>
@@ -63,7 +63,7 @@ if ($hero_type === 'cta') {
         <div class="mt-4 space-x-4">
           <?php if (!empty($button_1)): ?>
             <a href="<?php echo esc_url($button_1['url']); ?>"
-               class="inline-block px-6 py-2 rounded-full font-semibold btn"
+               class="inline-block px-6 py-3 rounded-full font-semibold text-lg transition duration-300 hover:opacity-90"
                target="<?php echo esc_attr($button_1['target'] ?? '_self'); ?>"
                style="background-color: <?php echo esc_attr($button_1_bg); ?>; color: <?php echo esc_attr($button_1_text); ?>;">
               <?php echo esc_html($button_1['title']); ?>
@@ -71,7 +71,7 @@ if ($hero_type === 'cta') {
           <?php endif; ?>
           <?php if (!empty($button_2)): ?>
             <a href="<?php echo esc_url($button_2['url']); ?>"
-               class="inline-block px-6 py-2 rounded-full font-semibold btn"
+               class="inline-block px-6 py-3 rounded-full font-semibold text-lg transition duration-300 hover:opacity-90"
                target="<?php echo esc_attr($button_2['target'] ?? '_self'); ?>"
                style="background-color: <?php echo esc_attr($button_2_bg); ?>; color: <?php echo esc_attr($button_2_text); ?>;">
               <?php echo esc_html($button_2['title']); ?>
@@ -82,12 +82,12 @@ if ($hero_type === 'cta') {
 
     <?php elseif ($hero_type === 'cta'): ?>
       <div class="flex flex-col md:flex-row items-center gap-8">
-        <!-- Mobile: image with content overlaid -->
+        <!-- Mobile: image with overlayed content -->
         <div class="w-full relative md:hidden">
           <?php if (!empty($cta_image_url)): ?>
             <img src="<?php echo esc_url($cta_image_url); ?>"
                  alt="<?php echo esc_attr($cta_image_alt); ?>"
-                 class="w-full h-[400px] object-cover rounded shadow-lg" />
+                 class="w-full h-[500px] object-cover rounded shadow-lg" />
           <?php endif; ?>
           <div class="absolute inset-0 flex flex-col justify-center items-center text-center px-4 rounded-full">
             <div class="prose prose-lg prose-invert max-w-none">
@@ -114,13 +114,13 @@ if ($hero_type === 'cta') {
           </div>
         </div>
 
-        <!-- Desktop: text left, image right -->
+        <!-- Desktop: content left, image right -->
         <div class="hidden md:block md:w-1/2 prose prose-lg prose-invert max-w-none">
           <?php echo wp_kses_post($cta_content); ?>
           <div class="mt-4 space-x-4">
             <?php if (!empty($button_1)): ?>
               <a href="<?php echo esc_url($button_1['url']); ?>"
-                 class="inline-block px-3 py-2 rounded-full font-semibold btn"
+                 class="inline-block px-6 py-2 rounded-full font-semibold btn"
                  target="<?php echo esc_attr($button_1['target'] ?? '_self'); ?>"
                  style="background-color: <?php echo esc_attr($button_1_bg); ?>; color: <?php echo esc_attr($button_1_text); ?>;">
                 <?php echo esc_html($button_1['title']); ?>

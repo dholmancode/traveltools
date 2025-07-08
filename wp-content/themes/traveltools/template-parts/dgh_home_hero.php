@@ -35,11 +35,11 @@ $bg_images = get_sub_field('background_images'); // repeater field for backgroun
       <h1 class="text-4xl md:text-6xl font-extrabold mb-10 drop-shadow-lg"><?php echo esc_html($title); ?></h1>
     <?php endif; ?>
 
-    <div class="flex flex-col md:flex-row justify-center gap-8">
+    <div class="flex flex-col md:flex-row justify-center items-center gap-8">
       <?php if ($cta_1): ?>
         <div class="max-w-xs text-center">
           <a href="<?php echo esc_url($cta_1['url']); ?>"
-             class="inline-block px-6 py-3 bg-black text-white font-semibold rounded-lg shadow-md hover:bg-gray-800 transition duration-300"
+             class="inline-block px-6 py-3 bg-black text-white font-semibold rounded-full shadow-md hover:bg-gray-800 transition duration-300"
              target="<?php echo esc_attr($cta_1['target'] ?? '_self'); ?>">
             <?php echo esc_html($cta_1['title']); ?>
           </a>
@@ -50,7 +50,7 @@ $bg_images = get_sub_field('background_images'); // repeater field for backgroun
       <?php if ($cta_2): ?>
         <div class="max-w-xs text-center">
           <a href="<?php echo esc_url($cta_2['url']); ?>"
-             class="inline-block px-6 py-3 bg-black text-white font-semibold rounded-lg shadow-md hover:bg-gray-800 transition duration-300"
+             class="inline-block px-6 py-3 bg-black text-white font-semibold rounded-full shadow-md hover:bg-gray-800 transition duration-300"
              target="<?php echo esc_attr($cta_2['target'] ?? '_self'); ?>">
             <?php echo esc_html($cta_2['title']); ?>
           </a>
@@ -61,7 +61,7 @@ $bg_images = get_sub_field('background_images'); // repeater field for backgroun
       <?php if ($cta_3): ?>
         <div class="max-w-xs text-center">
           <a href="<?php echo esc_url($cta_3['url']); ?>"
-             class="inline-block px-6 py-3 bg-black text-white font-semibold rounded-lg shadow-md hover:bg-gray-800 transition duration-300"
+             class="inline-block px-6 py-3 bg-black text-white font-semibold rounded-full shadow-md hover:bg-gray-800 transition duration-300"
              target="<?php echo esc_attr($cta_3['target'] ?? '_self'); ?>">
             <?php echo esc_html($cta_3['title']); ?>
           </a>
